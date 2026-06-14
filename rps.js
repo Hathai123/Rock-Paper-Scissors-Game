@@ -48,7 +48,7 @@ function playRound(humanChoice, computerChoice) {
             humanScore++;
             computerScore++;
         } else if (computerChoice == "Paper") {
-            console.log("You lose! " + humanChoice + " loses to " + computerChoice);
+            console.log("Computer win! " + computerChoice + " beats " + humanChoice);
             computerScore++;
         } else {
             console.log("You win! " + humanChoice + " beats " + computerChoice);
@@ -60,7 +60,7 @@ function playRound(humanChoice, computerChoice) {
             humanScore++;
             computerScore++;
         } else if (computerChoice == "Scissors") {
-            console.log("You lose! " + humanChoice + " loses to " + computerChoice);
+            console.log("Computer win! " + computerChoice + " beats " + humanChoice);
             computerScore++;
         } else {
             console.log("You win! " + humanChoice + " beats " + computerChoice);
@@ -72,7 +72,7 @@ function playRound(humanChoice, computerChoice) {
             humanScore++;
             computerScore++;
         } else if (computerChoice == "Rock") {
-            console.log("You lose! " + humanChoice + " loses to " + computerChoice);
+            console.log("Computer win! " + computerChoice + " beats " + humanChoice);
             computerScore++;
         } else {
             console.log("You win! " + humanChoice + " beats " + computerChoice);
@@ -81,11 +81,19 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
 
-console.log("You select : " + humanSelection);
-console.log("Computer selects : " + computerSelection);
-playRound(humanSelection, computerSelection);
 
-//declare result
+//play game 5 rounds
+function playGame(rounds) {
+    for (let i = 0; i < rounds; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+
+        console.log("You select : " + humanSelection + "\nComputer selects : " + computerSelection);
+        playRound(humanSelection, computerSelection);
+    }
+}
+
+//declare result after 5 rounds
+playGame(5);
+console.log("Play 5 rounds,\nYour score : "+ humanScore + "\nComputer's score : "+ computerScore);
