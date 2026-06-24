@@ -1,0 +1,67 @@
+@font-face{
+    font-family: pixelFont;
+    src: url("./pixelFont/PixelifySans-Bold.ttf");
+}
+body {
+    background-color: #1f2937;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin: 0;
+
+}
+
+.head{
+    font-size: 50px;
+    font-family: pixelFont;
+    padding: 20px;
+    background-color: #151b24;
+
+}
+
+.content{
+    height: 150px;
+    padding: 20px;
+    text-align: center;
+    align-content: center;
+}
+
+.round,
+.choice {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 20px;
+    gap: 50px;
+}
+
+.playerHand, .computerHand{
+    font-size: 100px;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    align-content: center;
+}
+
+.playerScore, .computerScore{
+    padding: 20px;
+    margin-bottom: 50px;
+}
+
+.choiceBox{
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    align-content: center;
+    background-color: #2c3a4e;
+    border-radius: 20px;
+}
+
+.choiceBox h1,p{
+    margin: 0;
+}
+
+.choiceBox h1{
+    margin-bottom: 10px;
+    font-size: 50px;
+}
