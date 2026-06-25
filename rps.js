@@ -27,8 +27,9 @@ choiceBox.forEach(function (item) {
                     playerHand.textContent = String.fromCharCode(9996);
                     break;
             }
-            
-
+            if(humanScore>=5||comScore>=5){
+                gameEND();
+            }
         }
     )
 })
@@ -64,7 +65,7 @@ function getComputerChoice() {
 // compare player's answer and computer's answer who will win
 // display score
 function playRound(humanChoice, computerChoice) {
-    if (
+    if (// win condition
         (humanChoice === "Rock" && computerChoice === "Scissors") ||
         (humanChoice === "Paper" && computerChoice === "Rock") ||
         (humanChoice === "Scissors" && computerChoice == "Paper")
@@ -74,9 +75,9 @@ function playRound(humanChoice, computerChoice) {
         console.log(`You win! ${humanChoice} beats ${computerChoice}`);
         humanScore++;
     } else if (humanChoice === computerChoice) {
-        head.textContent = 'Both Lose!!';
+        head.textContent = `It's a tie!`;
         subHead.textContent = `${humanChoice} is Tie with ${computerChoice}`;
-        console.log(`Both Lose!! ${humanChoice} is Tie with ${computerChoice}`);
+        console.log(`It's a tie! ${humanChoice} is Tie with ${computerChoice}`);
     } else {
         head.textContent = 'You lose!';
         subHead.textContent = `${humanChoice} loses to ${computerChoice}`;
@@ -97,13 +98,21 @@ function playRound(humanChoice, computerChoice) {
 
 // play game
 function playGame(humanSelection) {
-
+    // get computer's choice
     const computerSelection = getComputerChoice();
-
     console.log("You select : " + humanSelection + "\nComputer selects : " + computerSelection);
+    
+    // check who's win
     playRound(humanSelection, computerSelection);
 
 }
+
+
+function gameEND(){
+
+
+}
+
 
 
 /*
