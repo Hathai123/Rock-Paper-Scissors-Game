@@ -65,6 +65,10 @@ body {
 
 }
 
+.choiceBox:hover{
+    background-color: #253142;
+}
+
 h1,
 p {
     margin: 0;
@@ -77,7 +81,6 @@ p {
 
 /* css for alert box */
 .alert-box {
-    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -87,6 +90,7 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
+    display: none;
 }
 
 .alert-content {
@@ -113,4 +117,8 @@ p {
     box-shadow: none;
     color: white;
     font-size: 18px;
+}
+
+#playAgain:hover{
+    background-color: #374a65;
 }

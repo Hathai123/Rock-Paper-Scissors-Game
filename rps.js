@@ -27,7 +27,7 @@ choiceBox.forEach(function (item) {
                     playerHand.textContent = String.fromCharCode(9996);
                     break;
             }
-            if(humanScore>=5||comScore>=5){
+            if (humanScore == 5 || comScore == 5) {
                 gameEND();
             }
         }
@@ -101,31 +101,28 @@ function playGame(humanSelection) {
     // get computer's choice
     const computerSelection = getComputerChoice();
     console.log("You select : " + humanSelection + "\nComputer selects : " + computerSelection);
-    
+
     // check who's win
     playRound(humanSelection, computerSelection);
 
 }
 
 
-function gameEND(){
+function gameEND() {
+    const alertBox = document.getElementById("customAlert");
+    const result = document.getElementById("result");
+    const score = document.getElementById("score");
 
+    result.textContent = (humanScore == 5) ? "You Win!!!" : "You Lose!!!";
+    score.innerText = `Your score : ${humanScore} \nComputer's score : ${comScore}`
+
+    const playAgain = document.getElementById("playAgain");
+    playAgain.addEventListener('click',
+        function(){
+            window.location.reload();
+        }
+    )
+
+    alertBox.style.display = "flex";
 
 }
-
-
-
-/*
-//declare result after 5 rounds
-playGame(5);
-let result;
-if (humanScore > comScore) {
-    result = "You win!";
-} else if (humanScore < comScore) {
-    result = "You lose!";
-} else {
-    result = "You're tie!";
-}
-
-console.log(`Play 5 rounds,\n${result}\nYour score : ${humanScore}\nComputer's score : ${comScore}`);
-*/
