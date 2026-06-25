@@ -19,7 +19,6 @@
     </div>
 
     <div class="round">
-
         <div class="player">
             <div id="playerHand">?</div>
             <div id="playerScore">Player :</div>
@@ -29,51 +28,23 @@
             <div id="computerHand">?</div>
             <div id="computerScore">Computer :</div>
         </div>
-
     </div>
+
     <div class="choice">
-        <button class="choiceBox" id="rock">
+        <button class="choiceBox" id="Rock">
             <h1>&#9994</h1>
             <p>Rock</p>
         </button>
-        <button class="choiceBox" id="paper">
+        <button class="choiceBox" id="Paper">
             <h1>&#9995</h1>
             <p>Paper</p>
         </button>
-        <button class="choiceBox" id="scissors">
+        <button class="choiceBox" id="Scissors">
             <h1>&#9996</h1>
             <p>Scissors</p>
         </button>
-
     </div>
 
-    <script>
-        const playerHand = document.getElementById("playerHand");
-        const computerHand = document.getElementById("computerHand");
-
-        const choiceBox = document.querySelectorAll(".choiceBox");
-        // change player's hand by button-choice
-        choiceBox.forEach(function (item) {
-            item.addEventListener('click',
-                function (e) {
-                    switch (e.currentTarget.id) {
-                        case "rock":
-                            playerHand.textContent = String.fromCharCode(9994);
-                            break;
-                        case "paper":
-                            playerHand.textContent = String.fromCharCode(9995);
-                            break;
-                        case "scissors":
-                            playerHand.textContent = String.fromCharCode(9996);
-                            break;
-                    }
-
-                }
-            )
-        })
-
-
-    </script>
 
 </body>
 
