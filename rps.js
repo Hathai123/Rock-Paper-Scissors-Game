@@ -4,8 +4,8 @@ let humanScore = 0;
 let computerScore = 0;
 
 //get player's answer between Rock Paper Scissors
+//get player's choice from choiceBox
 function getHumanChoice() {
-    //get player's choice by prompt
     let answer = parseInt(prompt(`Please select your choice
         enter 1 if you want Rock
         enter 2 if you want Paper
@@ -19,8 +19,6 @@ function getHumanChoice() {
         case 3:
             return "Scissors";
     }
-
-
 }
 //get computer's answer by random between Rock Paper Scissors
 function getComputerChoice() {
@@ -72,6 +70,7 @@ function playGame(rounds) {
     }
 }
 
+/*
 //declare result after 5 rounds
 playGame(5);
 let result;
@@ -84,3 +83,4 @@ if (humanScore > computerScore) {
 }
 
 console.log(`Play 5 rounds,\n${result}\nYour score : ${humanScore}\nComputer's score : ${computerScore}`);
+*/
