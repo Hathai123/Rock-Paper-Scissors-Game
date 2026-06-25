@@ -4,7 +4,11 @@ const computerHand = document.getElementById("computerHand");
 const playerScore = document.getElementById("playerScore");
 const computerScore = document.getElementById("computerScore");
 
+const head = document.getElementById("head");
+const subHead = document.getElementById("subHead");
+
 const choiceBox = document.querySelectorAll(".choiceBox");
+
 // change player's hand by button-choice
 choiceBox.forEach(function (item) {
     item.addEventListener('click',
@@ -23,14 +27,13 @@ choiceBox.forEach(function (item) {
                     playerHand.textContent = String.fromCharCode(9996);
                     break;
             }
+            
 
         }
     )
 })
 
 
-
-//pseudocode Rock Paper Scissors Game
 //keep track of player and computer's score
 let humanScore = 0;
 let comScore = 0;
@@ -66,16 +69,23 @@ function playRound(humanChoice, computerChoice) {
         (humanChoice === "Paper" && computerChoice === "Rock") ||
         (humanChoice === "Scissors" && computerChoice == "Paper")
     ) {
+        head.textContent = 'You win!';
+        subHead.textContent = `${humanChoice} beats ${computerChoice}`;
         console.log(`You win! ${humanChoice} beats ${computerChoice}`);
         humanScore++;
     } else if (humanChoice === computerChoice) {
+        head.textContent = 'Both Lose!!';
+        subHead.textContent = `${humanChoice} is Tie with ${computerChoice}`;
         console.log(`Both Lose!! ${humanChoice} is Tie with ${computerChoice}`);
     } else {
+        head.textContent = 'You lose!';
+        subHead.textContent = `${humanChoice} loses to ${computerChoice}`;
         console.log(`You lose! ${humanChoice} loses to ${computerChoice}`);
         comScore++;
     }
 
     console.log(`Your score : ${humanScore}\nComputer's score : ${comScore}`);
+
 
     // show player and computer's score
     playerScore.textContent = `Player : ${humanScore}`;
@@ -94,7 +104,6 @@ function playGame(humanSelection) {
     playRound(humanSelection, computerSelection);
 
 }
-
 
 
 /*
