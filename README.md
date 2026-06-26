@@ -1,0 +1,2 @@
+# rock-paper-scissors
+The Odin Project's lesson's project Rock Paper Scissors game the display design I got reference from another student's work michalosman: https://github.com/michalosman/rock-paper-scissors
