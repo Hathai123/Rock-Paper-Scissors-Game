@@ -9,31 +9,10 @@ const subHead = document.getElementById("subHead");
 
 const choiceBox = document.querySelectorAll(".choiceBox");
 
-// change player's hand by button-choice
+// got player's answer from button
 choiceBox.forEach(function (item) {
-    item.addEventListener('click',
-        function (e) {
-            switch (e.currentTarget.id) {
-                case "Rock":
-                    playGame(e.currentTarget.id);
-                    playerHand.textContent = String.fromCharCode(9994);
-                    break;
-                case "Paper":
-                    playGame(e.currentTarget.id);
-                    playerHand.textContent = String.fromCharCode(9995);
-                    break;
-                case "Scissors":
-                    playGame(e.currentTarget.id);
-                    playerHand.textContent = String.fromCharCode(9996);
-                    break;
-            }
-            if (humanScore === 5 || comScore === 5) {
-                gameEND();
-            }
-        }
-    )
+    item.addEventListener('click', e => playGame(e.currentTarget.id))
 })
-
 
 //keep track of player and computer's score
 let humanScore = 0;
@@ -41,22 +20,17 @@ let comScore = 0;
 
 //get computer's answer by random between Rock Paper Scissors
 function getComputerChoice() {
-
     //random number from 3 numbers (act as Rock Paper Scissors)
     let comChoice = Math.floor(Math.random() * 3);
-
+    
     // get the answer base on number we get
-    // display computer's answer
-    // return computer's answer to check who is win
+    // return computer's answer
     switch (comChoice) {
         case 0:
-            computerHand.textContent = String.fromCharCode(9994);
             return "Rock";
         case 1:
-            computerHand.textContent = String.fromCharCode(9995);
             return "Paper";
         case 2:
-            computerHand.textContent = String.fromCharCode(9996);
             return "Scissors";
     }
 
@@ -82,24 +56,43 @@ function playRound(humanChoice, computerChoice) {
         subHead.textContent = `${humanChoice} loses to ${computerChoice}`;
         comScore++;
     }
-
     // show player and computer's score
     playerScore.textContent = `Player : ${humanScore}`;
     computerScore.textContent = `Computer : ${comScore}`;
-
 }
-
 
 // play game
 function playGame(humanSelection) {
+    // change display of human' hand
+    showChoice(playerHand, humanSelection);
+
     // get computer's choice
     const computerSelection = getComputerChoice();
+    // change display of computer's hand
+    showChoice(computerHand, computerSelection);
 
     // check who's win
     playRound(humanSelection, computerSelection);
 
+    if (humanScore === 5 || comScore === 5) {
+        gameEND();
+    }
+
 }
 
+function showChoice(whoHand, selection) {
+    switch (selection) {
+        case "Rock":
+            whoHand.textContent = String.fromCharCode(9994);
+            break;
+        case "Paper":
+            whoHand.textContent = String.fromCharCode(9995);
+            break;
+        case "Scissors":
+            whoHand.textContent = String.fromCharCode(9996);
+            break;
+    }
+}
 
 function gameEND() {
     const alertBox = document.getElementById("customAlert");
@@ -109,13 +102,12 @@ function gameEND() {
     result.textContent = (humanScore == 5) ? "You Win!!!" : "You Lose!!!";
     score.innerText = `Your score : ${humanScore} \nComputer's score : ${comScore}`
 
+    alertBox.style.display = "flex";
+
     const playAgain = document.getElementById("playAgain");
     playAgain.addEventListener('click',
-        function(){
+        function () {
             window.location.reload();
         }
     )
-
-    alertBox.style.display = "flex";
-
 }
